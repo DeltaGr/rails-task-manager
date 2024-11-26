@@ -1,0 +1,18 @@
+<h1 class="mb-4">All Tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <li>
+      <input type="checkbox" <%= task.completed ? "checked" : "" %>>
+      <%= link_to task.title, task_path(task) %>  <!-- This will navigate to /tasks/:id -->
+
+    <!-- Delete link with confirmation -->
+    <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: 'Are you sure you want to delete this task?' } %>
+
+    </div>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add a new task', new_task_path %>  <!-- This should navigate to /tasks/new -->

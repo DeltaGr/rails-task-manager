@@ -1,0 +1,11 @@
+<h1><%= @task.title %> <%= link_to 'Edit', edit_task_path(@task) %></h1>
+<!-- Display task completion status -->
+<ul>
+  <li>
+    <%= check_box_tag "", @task.completed %>
+    <%= @task.completed ? "Completed" : "Not Completed" %>
+  </li>
+</ul>
+
+
+<%= link_to 'Back to list', tasks_path %>
